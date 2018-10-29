@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/home/userlisa/Bureau/thp/semaine5/lundi_s5/Mon_petit_potin/app/assets/stylesheets/index.scss">
+</head>
+<body>
+<h1>Bienvenu sur <strong>Mon petit potin</strong> !</h1>
+<ul>
+    <h3>Voici la liste des potins :</h3>
+    <% Potin.all.each do |potin| %>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">potin n°<%= potin.id %></h5>
+                <p class="card-text"> <%= potin.content %> </p>
+                <a href="#" class="btn btn-primary"><%= "#{potin.author.first_name} #{potin.author.last_name}"%></a>
+            </div>
+        </div>
+        <% end %>
+</ul>
+</body>
+</html>
