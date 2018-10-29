@@ -7,16 +7,16 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Acceuil <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/"> Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Potin</a>
+        <a class="nav-link" href="/">Potin</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Team</a>
+        <a class="nav-link" href="/team">Team</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
+        <a class="nav-link" href="/contact">Contact</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -28,14 +28,18 @@
 <h1>Bienvenu sur <strong>Mon petit potin</strong> !</h1>
 <ul>
     <h3>Voici la liste des potins :</h3>
+    <div class="row">
     <% Potin.all.each do |potin| %>
-        <div class="card" style="width: 18rem;">
+        <div class="card col-4" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">potin n°<%= potin.id %></h5>
+                <h5 class="card-title">
+                <%= link_to "potin n° #{potin.id}", "/#{potin.id}" %>
+                </h5>
                 <p class="card-text"> <%= potin.content %> </p>
-                <a href="#" class="btn btn-primary"><%= "#{potin.author.first_name} #{potin.author.last_name}"%></a>
+                <p><%= "#{potin.author.first_name} #{potin.author.last_name}"%></p>
             </div>
         </div>
         <% end %>
+        </div>
 </ul>
 
